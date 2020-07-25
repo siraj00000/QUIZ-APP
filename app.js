@@ -1,11 +1,12 @@
 window.onload = function () {
     show(0);
-    
+    start();
+
 }
 
-let user_name = sessionStorage.getItem("Name")
+let userName = sessionStorage.getItem("Name")
 let wel = document.getElementById('userNameId')
-wel.innerHTML = user_name
+wel.innerHTML = userName
 
 // question and answer in object
 
@@ -66,22 +67,34 @@ var questions = [{
 // next question button
 let question_count = 0;
 var point = 0;
-
+var c = 0;
 function next() {
     let user_answer = document.querySelector('li.option.active').innerHTML;
     // user answer
 
+
     if (user_answer == questions[question_count].answer) {
         point += 10;
-        sessionStorage.setItem("points",point)
-    }
+        c++;
+        sessionStorage.setItem("Correct", c)
+        var a = user_answer + " is " + "RIGHT";
+        console.log(a)
+        sessionStorage.setItem("points", point)
+    } else {
+        var a = user_answer + " is " + "wrong"
+        console.log(a)
+        point += 0
 
-    if(question_count == questions.length -1){
+    }
+    console
+
+    if (question_count == questions.length - 1) {
+        stop()
         location.href = "end.html"
         return;
     }
 
-    
+
     question_count++;
     show(question_count)
 }
@@ -90,7 +103,7 @@ function next() {
 function show(e) {
     var ques = document.getElementById('questions')
     ques.innerHTML = `
-    <h2 class="text">Q ${question_count + 1 +" : "}${questions[e].question}</h2>
+    <h2 class="text">Q ${question_count + 1 + " : "}${questions[e].question}</h2>
         <ul class="ul" >
             <li class="option" >${questions[e].options[0]}</li>
             <li class="option">${questions[e].options[1]}</li>
@@ -98,7 +111,7 @@ function show(e) {
             <li class="option">${questions[e].options[3]}</li>
         </ul>
         `;
-        
+
     toggleActive()
 
 
@@ -120,3 +133,48 @@ function toggleActive() {
     }
 }
 
+// counter
+
+var getCounter = document.getElementById("counter")
+var ms = 100;
+var s = 60;
+var m = 5;
+var interval;
+
+function watch() {
+    return (m < 10 ? "0" + m : m) + " : " + (s < 10 ? "0" + s : s) + " : " + (ms < 10 ? "0" + ms : ms);
+}
+
+
+
+function timer() {
+    getCounter.innerHTML = watch();
+    --ms
+    if (ms == 0) {
+        --s;
+        ms = 100;
+    } else if (s == 0) {
+        --m;
+        s = 60
+    }
+}
+function start() {
+    interval = setInterval(timer, 10)
+}
+function stop() {
+    clearTimeout(interval)
+}
+// //table
+
+// let table = document.getElementById('table')
+// let tr = document.createElement('tr')
+// let td = document.createElement('td')
+
+
+// var getAnswer = sessionStorage.getItem('USER ANSWER')
+// td.innerHTML = getAnswer
+// console.lo
+// tr.appendChild(td)
+// table.appendChild(tr)
+
+// console.log(table)

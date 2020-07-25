@@ -1,32 +1,35 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
+
 /* wrapper */
-.wrapper{
+
+.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(57deg,black,gray);
-
+    background: linear-gradient(57deg, black, gray);
 }
+
 /* welcome text */
-.welcome{
+
+.welcome {
     width: 400px;
 }
 
 /* form */
-.form input,
-.form button{
+
+.form input, .form button {
     display: block;
     width: 100%;
 }
 
-.form input{
+.form input {
     margin-bottom: 15px;
     border: none;
     border-bottom: 2px solid orangered;
@@ -36,7 +39,7 @@
     font-size: 50px;
 }
 
-.form button{
+.form button {
     padding: 20px 0;
     font-size: 20px;
     border-color: black;
@@ -45,41 +48,47 @@
     color: orangered;
     transition: .4s all;
 }
-.form button:focus{
+
+.form button:focus {
     outline: none;
 }
-.form button:hover{
+
+.form button:hover {
     transform: translateY(-10px);
     cursor: pointer;
 }
 
-
 /* ---------------------Quiz Section---------------- */
-.quiz{
+
+.quiz {
     width: 800px;
     height: 500px;
     background-color: tomato;
     display: grid;
     grid-template-rows: 60px auto;
 }
-.quiz_header{
+
+.quiz_header {
     display: flex;
     justify-content: space-around;
     background-color: black;
     align-items: center;
 }
-.quiz_body{
+
+.quiz_body {
     background-color: orangered;
     padding: 60px;
 }
 
-.namestyling,.timer{
+.namestyling, .timer {
     color: white;
 }
-.ul{
+
+.ul {
     margin-top: 20px;
 }
-.option{
+
+.option {
     list-style-type: none;
     background-color: black;
     width: 50%;
@@ -88,13 +97,13 @@
     font-weight: 200;
     margin-bottom: 15px;
     border-radius: 100px;
-
 }
-.option:hover{
+
+.option:hover {
     cursor: pointer;
 }
 
-.nextques{
+.nextques {
     background-color: black;
     color: orangered;
     font-size: 20px;
@@ -103,116 +112,146 @@
     border-radius: 100px;
     transition: .4s all;
 }
-.nextques:hover{
+
+.nextques:hover {
     transform: translateY(-5px);
     cursor: pointer;
-    
 }
-.nextques:focus{
+
+.nextques:focus {
     outline: none;
 }
 
-
-
-.active{
+.active {
     background-color: white;
     color: black !important;
 }
+
 /* ---------end page */
-.tropy{
-    margin-left: 20px;
-    font-size: 300px;
-    color: rgb(228, 184, 41);
-    
-    margin-left: 110px;
+
+table {
+    border: 2px solid orangered;
 }
-.reward{
+
+table tr td {
+    padding: 25px;
     text-align: center;
-}
-.usname,.point{
     color: white;
-    font-size: 50px;
-
+    font-size: 20px;
+    border: 2px solid orangered;
 }
-
 
 /* --------------MEDIA QUERY */
+
 @media only screen and (max-width: 800px) {
-   
     .quiz {
-      width: 600px;
-      height: 400px;
+        width: 600px;
+        height: 400px;
     }
-  }
+}
 
 @media only screen and (max-width: 600px) {
     .quiz {
-      width: 550px;
-      height: 300px;
+        width: 550px;
+        height: 300px;
+    }
+    .start {
+        padding: 100px 25px;
+    }
+    .welcome {
+        padding: 50px 20px;
     }
 }
+
 @media only screen and (max-width: 550px) {
-    .tropy{
-        margin-left: 60px;
+    .start {
+        padding: 100px 25px;
     }
-    .usname,.point{
-        color: white;
-        font-size: 40px;
-    
+    .welcome {
+        padding: 50px 20px;
     }
-    .quiz{
+    .quiz {
         width: 500px;
         height: 400px;
     }
-    .option{
+    .option {
         width: 80%;
     }
-  }
+}
+
 @media only screen and (max-width: 450px) {
     .quiz {
-      width: 350px;
-      height: 300px;
+        width: 350px;
+        height: 300px;
     }
-    .option{
+    .option {
         width: 100%;
     }
-    .text{
+    .text {
         font-size: 20px;
     }
-    .quiz_header{
+    .quiz_header {
         padding: 10px;
     }
-    .wrapper{
+    .wrapper {
         align-items: flex-start;
         margin: 0;
     }
-    .usname,.point{
+    .end {
+        padding: 15px;
+    }
+    table tr td {
+        font-size: 25px;
+        padding: 10px;
+    }
+    .start {
+        padding: 180px 25px;
+    }
+    .welcome {
+        padding: 50px 20px;
+    }
+    .form input{
         font-size: 30px;
     }
-    .tropy{
-        margin-left: 5%;
-    }
-
 }
-@media only screen and (max-width:350px){
-    .quiz{
+
+@media only screen and (max-width:380px) {
+    .end {
+        padding: 15px 5px;
+    }
+    table tr td {
+        font-size: 15px;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width:350px) {
+    .quiz {
         width: 300px;
         height: 520;
     }
-    .option{
+    .option {
         width: 110%;
     }
-    .wrapper{
-        
+    .wrapper {
         height: 120vh;
         align-items: flex-start;
     }
-    .tropy{
+    .tropy {
         font-size: 200px;
         margin-left: 5%;
     }
-    .usname,.point{
+    .usname, .point {
         font-size: 20px;
     }
+}
 
+@media only screen and (max-width:320px) {
+    .end {
+        padding: 15px;
+    }
+    table tr td {
+        font-size: 15px;
+        padding: 5px;
+    }
 }
